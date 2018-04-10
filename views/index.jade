@@ -1,0 +1,58 @@
+extends layout
+
+block content
+    head
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    body
+        .hand
+            form(name='calc')
+                table.zbsz
+                  tr
+                    td(colspan='4')
+                      input#myText(type='text', value='0')
+                      br
+                      span#przn
+                  tr
+                    td
+                      input.bot_stnd(type='button', value='√', onclick='Sqrt()')
+                    td
+                      input.bot_stnd(value='x²', onclick='Pow()', type='button')
+                    td
+                      input.bot_stnd(value='C', onclick='Clear()', type='button')
+                    td
+                      input.bot_stnd(value='+', onclick="Operation('+')", type='button')
+                  tr
+                    td
+                      input.bot_stnd(value='7', onclick='NumPressed(7)', type='button')
+                    td
+                      input.bot_stnd0(disabled value='8', onclick='NumPressed(8)', type='button')
+                    td
+                      input.bot_stnd0(disabled value='9', onclick='NumPressed(9)', type='button')
+                    td
+                      input.bot_stnd(value='-', onclick="Operation('-')", type='button')
+                  tr
+                    td
+                      input.bot_stnd(value='4', onclick='NumPressed(4)', type='button')
+                    td
+                      input.bot_stnd(value='5', onclick='NumPressed(5)', type='button')
+                    td
+                      input.bot_stnd(value='6', onclick='NumPressed(6)', type='button')
+                    td
+                      input.bot_stnd(value='×', onclick="Operation('*')", type='button')
+                  tr
+                    td
+                      input.bot_stnd(value='1', onclick='NumPressed(1)', type='button')
+                    td
+                      input.bot_stnd(value='2', onclick='NumPressed(2)', type='button')
+                    td
+                      input.bot_stnd(value='3', onclick='NumPressed(3)', type='button')
+                    td
+                      input.bot_stnd(value='/', onclick="Operation('/')", type='button')
+                  tr
+                    td
+
+                    td
+                      input.bot_stnd(value='0', onclick='NumPressed(0)', type='button')
+                    td(colspan='2')
+                      input.bot_stnd.rv(value='=', onclick="Operation('=')", type='button')
+        script(src='/javascripts/simpleCalculator.js')

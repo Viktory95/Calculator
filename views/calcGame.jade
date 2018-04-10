@@ -1,0 +1,158 @@
+extends layout
+
+block content
+    head
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    body
+        .hand
+            form(name='calc')
+                table.tab1
+                  tr
+                    td
+                      input.bot_stnd(type='button', value='0-10', onclick='SetInterval(0,10)')
+                    td
+                      input.bot_stnd(value='0-20', onclick='SetInterval(0,20)', type='button')
+                    td
+                      input.bot_stnd(value='0-100', onclick='SetInterval(0,100)', type='button')
+                    td
+                      input.bot_stnd(value='+', onclick="Operation('+')", type='button')  
+                    td
+                      input.bot_stnd(value='-', onclick="Operation('-')", type='button')  
+                    td
+                      input.bot_stnd(value='*', onclick="Operation('*')", type='button')  
+                    td
+                      input.bot_stnd(value='/', onclick="Operation('/')", type='button')  
+                table.tab2
+                  tr
+                    td
+                      input#first(type='text', value='')
+                    td
+                      input#operation(type='text', value='')
+                    td
+                      input#second(type='text', value='')
+                    td
+                      h1 =
+                    td
+                      input#personResult(type='text', value='')
+                    td
+                      input.bot(value='?', onclick="Operation('?')", type='button')  
+                    td
+                      input#programmResult(type='text', value='')
+                table.zbsz 
+                  tr
+                    td
+                      input.bot_stnd(value='7', onclick='NumPressed(7)', type='button')
+                    td
+                      input.bot_stnd0(disabled value='8', onclick='NumPressed(8)', type='button')
+                    td
+                      input.bot_stnd0(disabled value='9', onclick='NumPressed(9)', type='button')
+                  tr
+                    td
+                      input.bot_stnd(value='4', onclick='NumPressed(4)', type='button')
+                    td
+                      input.bot_stnd(value='5', onclick='NumPressed(5)', type='button')
+                    td
+                      input.bot_stnd(value='6', onclick='NumPressed(6)', type='button')
+                  tr
+                    td
+                      input.bot_stnd(value='1', onclick='NumPressed(1)', type='button')
+                    td
+                      input.bot_stnd(value='2', onclick='NumPressed(2)', type='button')
+                    td
+                      input.bot_stnd(value='3', onclick='NumPressed(3)', type='button')
+                  tr
+                    td
+                      input.bot_stnd(value='0', onclick='NumPressed(0)', type='button')
+                    td
+                      input.bot_stnd.rv(value='OK', onclick="Operation('OK')", type='button')
+                    td
+                      input.bot_stnd(value='C', onclick='Clear()', type='button')
+                table.tab3
+                  tr
+                    td
+                      h1#result
+            style.
+                table{
+                    font-size: 20px;
+                }
+                input.bot_stnd {
+                  display: inline-block;
+                  width: 100px;
+                  height: 50px;
+                  line-height: 50px;
+                  font-size: 20px;
+                  text-align: center;
+                  text-decoration: none;
+                  text-shadow: 0 1px rgba(255,255,255,.2), 0 -1px rgba(0,0,0,.8);
+                  outline: none;
+                  border: none;
+                  border-radius: 10px;
+                  background: rgb(28,107,114) radial-gradient(150% 100% at 50% 5px, rgba(255,255,255,.2), rgba(0,0,0,0));
+                  box-shadow: inset rgba(0,0,0,.6) 0 -2px 5px, inset rgba(252,255,255,.7) 0 2px 5px, rgba(0,0,0,.8) 0 2px 5px -1px;
+                  color: rgb(0,79,86);
+                  user-select: none;
+                } 
+                input.bot_stnd:hover {
+                  color: rgb(0,59,66);
+                  cursor: pointer;
+                }
+                input.bot_stnd:active {
+                  padding-bottom: 1px;
+                  box-shadow:
+                   inset rgba(0,0,0,1) 0 1px 3px,
+                   inset rgba(0,0,0,.6) 0 -2px 5px,
+                   inset rgba(252,255,255,.7) 0 2px 5px,
+                   0 1px rgba(255,255,255,.08);
+                  color: rgb(128,207,214);
+                }
+                input{
+                    width: 100px;
+                    height: 40px;
+                    margin-right: 10px;
+                }
+                table.zbsz {
+                    margin-left: 38%;
+                    margin-top: 2%;
+                }
+                table.tab1 {
+                    margin-left: 20%;
+                    margin-top: 2%;
+                }
+                table.tab2 {
+                    margin-left: 25%;
+                    margin-top: 2%;
+                }
+                input.bot {
+                  display: inline-block;
+                  width: 50px;
+                  height: 40px;
+                  line-height: 50px;
+                  font-size: 20px;
+                  text-align: center;
+                  text-decoration: none;
+                  text-shadow: 0 1px rgba(255,255,255,.2), 0 -1px rgba(0,0,0,.8);
+                  outline: none;
+                  border: none;
+                  border-radius: 10px;
+                  background: rgb(28,107,114) radial-gradient(150% 100% at 50% 5px, rgba(255,255,255,.2), rgba(0,0,0,0));
+                  box-shadow: inset rgba(0,0,0,.6) 0 -2px 5px, inset rgba(252,255,255,.7) 0 2px 5px, rgba(0,0,0,.8) 0 2px 5px -1px;
+                  color: rgb(0,79,86);
+                  user-select: none;
+                } 
+                input.bot:hover {
+                  color: rgb(0,59,66);
+                  cursor: pointer;
+                }
+                input.bot:active {
+                  padding-bottom: 1px;
+                  box-shadow:
+                   inset rgba(0,0,0,1) 0 1px 3px,
+                   inset rgba(0,0,0,.6) 0 -2px 5px,
+                   inset rgba(252,255,255,.7) 0 2px 5px,
+                   0 1px rgba(255,255,255,.08);
+                  color: rgb(128,207,214);
+                }
+                table.tab3 {
+                    margin-left: 45%;
+                }
+        script(src='/javascripts/calcGame.js')
